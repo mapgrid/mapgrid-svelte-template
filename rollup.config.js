@@ -11,5 +11,12 @@ export default {
         file: 'public/bundle.js',
         format: 'iife',
     },
-    plugins: [svelte(), resolve(), commonjs(), !!prod && terser()],
+    plugins: [
+        svelte(),
+        resolve({
+            dedupe: ['svelte', 'svelte/internal'],
+        }),
+        commonjs(),
+        !!prod && terser(),
+    ],
 }
