@@ -1,1 +1,1 @@
-# mapgrid-node-template
+# mapgrid-svelte-template

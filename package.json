@@ -1,9 +1,8 @@
 {
-    "name": "mapgrid-node-template",
+    "name": "mapgrid-svelte-template",
+    "private": true,
     "version": "1.0.0",
-    "main": "dist/mapgrid-node-template.js",
-    "module": "dist/mapgrid-node-template.es.js",
-    "repository": "git@github.com:mapgrid/mapgrid-node-template.git",
+    "repository": "git@github.com:mapgrid/mapgrid-svelte-template.git",
     "author": "mapgrid <noreply@mapgrid.org>",
     "license": "MIT",
     "devDependencies": {
@@ -15,17 +14,13 @@
         "eslint-plugin-import": "^2.18.2",
         "prettier": "^1.19.1",
         "rollup": "^1.29.0",
-        "rollup-plugin-terser": "^5.2.0"
+        "rollup-plugin-svelte": "^5.1.1",
+        "rollup-plugin-terser": "^5.2.0",
+        "svelte": "^3.18.1"
     },
     "scripts": {
         "build": "rollup -c",
         "format": "prettier --write \"**/*.js\" \"**/*.json\" .eslintrc",
-        "lint": "eslint .",
-        "prepublishOnly": "yarn run lint",
-        "preversion": "yarn run lint",
-        "postversion": "git push && git push --tags"
-    },
-    "files": [
-        "dist/**/*"
-    ]
+        "lint": "eslint ."
+    }
 }

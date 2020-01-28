@@ -1,23 +1,15 @@
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
+import svelte from 'rollup-plugin-svelte'
 import { terser } from 'rollup-plugin-terser'
 
-import pkg from './package.json'
+const prod = process.env.NODE_ENV === 'production'
 
 export default {
     input: 'src/index.js',
-    output: [
-        {
-            file: pkg.main,
-            format: 'umd',
-            sourcemap: true,
-            name: 'postcss',
-        },
-        {
-            file: pkg.module,
-            format: 'es',
-            sourcemap: true,
-        },
-    ],
-    plugins: [resolve(), commonjs(), terser()],
+    output: {
+        file: 'public/bundle.js',
+        format: 'iife',
+    },
+    plugins: [svelte(), resolve(), commonjs(), !!prod && terser()],
 }
