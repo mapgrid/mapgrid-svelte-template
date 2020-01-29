@@ -12,6 +12,7 @@
         "eslint-config-airbnb-base": "^14.0.0",
         "eslint-config-prettier": "^6.9.0",
         "eslint-plugin-import": "^2.18.2",
+        "jest": "^25.1.0",
         "prettier": "^1.19.1",
         "rollup": "^1.29.0",
         "rollup-plugin-svelte": "^5.1.1",
@@ -21,7 +22,8 @@
     "scripts": {
         "build": "rollup -c",
         "watch": "rollup -cw",
-        "format": "prettier --write \"**/*.js\" \"**/*.json\" .eslintrc",
-        "lint": "eslint ."
+        "format": "prettier --write \"**/*.js\" \"**/*.json\"",
+        "lint": "eslint .",
+        "test": "jest && yarn run lint"
     }
 }
