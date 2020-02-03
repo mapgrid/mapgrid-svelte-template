@@ -1,9 +1,11 @@
 import commonjs from '@rollup/plugin-commonjs'
 import resolve from '@rollup/plugin-node-resolve'
 import svelte from 'rollup-plugin-svelte'
+import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 
 const prod = process.env.NODE_ENV === 'production'
+const watch = process.env.ROLLUP_WATCH
 
 export default {
     input: 'src/index.js',
@@ -12,11 +14,17 @@ export default {
         format: 'iife',
     },
     plugins: [
-        svelte(),
+        svelte({
+            dev: !prod,
+            css: css => {
+                css.write('public/bundle.css')
+            },
+        }),
         resolve({
             dedupe: ['svelte', 'svelte/internal'],
         }),
         commonjs(),
+        !!watch && livereload(),
         !!prod && terser(),
     ],
 }
