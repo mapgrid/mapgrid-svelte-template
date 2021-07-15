@@ -6,7 +6,7 @@
     "author": "mapgrid <noreply@mapgrid.org>",
     "license": "MIT",
     "devDependencies": {
-        "@rollup/plugin-commonjs": "^19.0.0",
+        "@rollup/plugin-commonjs": "^19.0.1",
         "@rollup/plugin-node-resolve": "^13.0.1",
         "eslint": "^7.30.0",
         "eslint-config-airbnb-base": "^14.2.1",
